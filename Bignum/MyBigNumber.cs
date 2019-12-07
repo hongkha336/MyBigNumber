@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Bignum
 {
     class MyBigNumber
     {
+        private Label lbStep;
+        /// <summary>
+        /// This is the constructor with lable step in to
+        /// </summary>
+        /// <param name="step">Label step </param>
+        public MyBigNumber(Label step)
+        {
+            this.lbStep = step;
+        }
         /// <summary>
         /// This is a function sum two big number
         /// </summary>
@@ -34,24 +45,34 @@ namespace Bignum
                     {
                         temp = '1';
                         div = div % 10;
+                        changeStep(" rem 1");
                     }
                     else
+                    {
+                        changeStep(string.Empty);
                         temp = '0';
+                    }
                     result = div + result;
+                    changeStep(string.Concat(numberA[numberA.Length - 1 - i], " + ", numberB[numberB.Length - 1 - i], " = ", div, this.lbStep.Text));
                 }
                 else
                 {
                     if(temp=='1')
                     {
-                        div = (char)numberA[numberA.Length - 1 - i]- '0' - '0' + temp;
+                        div = (char)numberA[numberA.Length - 1 - i] + (char)numberB[numberB.Length - 1 - i] - '0' - '0' - '0' + temp;
                         if (div > 9)
                         {
                             temp = '1';
                             div = div % 10;
+                            changeStep(" rem 1");
                         }
                         else
+                        {
+                            changeStep(string.Empty);
                             temp = '0';
+                        }
                         result = div + result;
+                        changeStep(string.Concat(numberA[numberA.Length - 1 - i], " + ", numberB[numberB.Length - 1 - i], " = ", div, this.lbStep.Text));
                     }
                     else
                     {
@@ -59,11 +80,22 @@ namespace Bignum
                         break;
                     }
                 }
+              
             }
 
             if (temp == '1')
                 result = temp + result;
             return result;
         }
+
+        /// <summary>
+        /// Show the step to the lable 
+        /// </summary>
+        /// <param name="message"></param>
+        private void changeStep(String message)
+        {
+          lbStep.Text = message;
+        }
+
     }
 }

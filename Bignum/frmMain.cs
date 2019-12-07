@@ -19,7 +19,7 @@ namespace Bignum
 
         private void BtnSum_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = new MyBigNumber().sum(txtNumberA.Text, txtNumberB.Text);
+            richTextBox1.Text = new MyBigNumber(label2).sum(txtNumberA.Text, txtNumberB.Text);
         }
     }
 }

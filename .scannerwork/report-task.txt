@@ -1,0 +1,7 @@
+organization=hongkha336
+projectKey=hongkha336_MyBigNumber
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.3300
+dashboardUrl=https://sonarcloud.io/dashboard?id=hongkha336_MyBigNumber
+ceTaskId=AW7eN5Y_neizpZusdNQh
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW7eN5Y_neizpZusdNQh
